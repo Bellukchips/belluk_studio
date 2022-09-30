@@ -31,19 +31,6 @@
     <link rel="icon" type="image/png" href="favicon.png" />
 
     <title>Belluk Studio</title>
-
-    <link rel="manifest" href="manifest.json" />
-    <!-- This script adds the flutter initialization JS code -->
-    <script src="flutter.js" defer></script>
-    <script src="https://unpkg.com/canvaskit-wasm@0.33.0/bin/canvaskit.js"></script>
-    <link
-      rel="preload"
-      href="https://unpkg.com/canvaskit-wasm@0.33.0/bin/canvaskit.wasm"
-      as="fetch"
-      crossorigin="anonymous"
-    />
-  </head>
-  <body>
     <div id="container">
       <div class="divider" aria-hidden="true"></div>
       <p class="loading-text" aria-label="Loading">
@@ -56,6 +43,18 @@
         <span class="letter" aria-hidden="true">g</span>
       </p>
     </div>
+    <link rel="manifest" href="manifest.json" />
+    <!-- This script adds the flutter initialization JS code -->
+    <script src="flutter.js" defer></script>
+    <script src="https://unpkg.com/canvaskit-wasm@0.33.0/bin/canvaskit.js"></script>
+    <link
+      rel="preload"
+      href="https://unpkg.com/canvaskit-wasm@0.33.0/bin/canvaskit.wasm"
+      as="fetch"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
     <script>
       window.flutterWebRenderer = "html";
     </script>
@@ -80,20 +79,19 @@
     </script>
     <script>
       var serviceWorkerVersion = null;
-      var isProduction = true;
-      if (isProduction) {
-        var scriptLoaded = false;
-        function loadMainDartJs() {
-          if (scriptLoaded) {
-            return;
-          }
-          scriptLoaded = true;
-          var scriptTag = document.createElement("script");
-          scriptTag.src = "main.dart.js";
-          scriptTag.type = "application/javascript";
-          document.body.append(scriptTag);
+      var isProduction = false;
+      var scriptLoaded = false;
+      function loadMainDartJs() {
+        if (scriptLoaded) {
+          return;
         }
-
+        scriptLoaded = true;
+        var scriptTag = document.createElement("script");
+        scriptTag.src = "main.dart.js";
+        scriptTag.type = "application/javascript";
+        document.body.append(scriptTag);
+      }
+      if (isProduction) {
         if ("serviceWorker" in navigator) {
           // Service workers are supported. Use them.
           window.addEventListener("load", function () {
@@ -144,7 +142,14 @@
           loadMainDartJs();
         }
       } else {
+        if ("serviceWorker" in navigator) {
+          window.addEventListener("flutter-first-frame", function () {
+            navigator.serviceWorker.register("flutter_service_worker.js");
+          });
+        }
+
         window.addEventListener("load", function (ev) {
+          loadMainDartJs();
           // Download main.dart.js
           _flutter.loader
             .loadEntrypoint({
