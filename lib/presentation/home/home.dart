@@ -166,84 +166,16 @@ class _HomePageState extends State<HomePage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Expanded(
-                flex: 2,
                 child: Container(
                   padding: const EdgeInsets.symmetric(vertical: 10),
                   color: kPrimaryColor,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Expanded(
-                        child: SafeArea(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Container(
-                                height: 200,
-                                width: 200,
-                                decoration: BoxDecoration(
-                                  border: Border.all(
-                                      color: kSecondaryColor, width: 5),
-                                  shape: BoxShape.circle,
-                                ),
-                                child: CachedNetworkImage(
-                                  imageUrl: StringX.img,
-                                  imageBuilder: (context, imageProvider) =>
-                                      Container(
-                                    decoration: BoxDecoration(
-                                      shape: BoxShape.circle,
-                                      image: DecorationImage(
-                                          image: imageProvider,
-                                          fit: BoxFit.cover),
-                                    ),
-                                  ),
-                                  placeholder: (context, url) => const Center(
-                                      child: SpinKitPulse(
-                                    color: kSecondaryColor,
-                                  )),
-                                  errorWidget: (context, url, error) =>
-                                      const Icon(
-                                    Icons.error,
-                                    color: kPrimaryColor,
-                                  ),
-                                ),
-                              ),
-                              const SizedBox(
-                                height: 50,
-                              ),
-                              AnimatedTextKit(
-                                animatedTexts: [
-                                  TypewriterAnimatedText('Software Engineer',
-                                      textStyle: GoogleFonts.montserrat(
-                                          color: Colors.white,
-                                          fontSize: 20,
-                                          fontWeight: FontWeight.w500),
-                                      cursor: '|'),
-                                  TyperAnimatedText(
-                                    'Software Engineer',
-                                    textStyle: GoogleFonts.montserrat(
-                                        color: Colors.white,
-                                        fontSize: 20,
-                                        fontWeight: FontWeight.w500),
-                                  ),
-                                ],
-                                onTap: () {},
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                      Expanded(
-                        flex: 2,
-                        child: Container(
-                          padding: const EdgeInsets.symmetric(horizontal: 20),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: generateMenu(context),
-                          ),
-                        ),
-                      )
-                    ],
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: generateMenu(context),
+                    ),
                   ),
                 ),
               ),

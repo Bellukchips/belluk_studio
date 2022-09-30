@@ -1,4 +1,4 @@
-import 'package:animated_text_kit/animated_text_kit.dart';
+// import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:belluk_studio/presentation/core/device_screen/dekstop_layout.dart';
 import 'package:belluk_studio/presentation/core/device_screen/mobile_layout.dart';
 import 'package:belluk_studio/presentation/core/device_screen/tablet_layout.dart';
@@ -20,6 +20,16 @@ class ProfilePage extends StatelessWidget {
     return ResponsiveLayout(
       mobileBody: MobileScaffold(
         scaffold: Scaffold(
+          appBar: AppBar(
+            title: Text(
+              'Profile',
+              style: GoogleFonts.dancingScript()
+                  .copyWith(color: Colors.black, fontSize: 25),
+            ),
+            centerTitle: true,
+            backgroundColor: kBgDarkColor,
+            elevation: 0,
+          ),
           body: SafeArea(
             child: Container(
               width: screen.width,
@@ -95,15 +105,15 @@ class ProfilePage extends StatelessWidget {
                           ],
                         ),
                       ),
-                      AnimatedTextKit(
-                        animatedTexts: [
-                          TyperAnimatedText(
-                              'Waktu yang kamu nikmati untuk dihabiskan meraih impian'),
-                          TyperAnimatedText(
-                              'bukanlah waktu yang terbuang.  - Marthe Troly-Curtin'),
-                        ],
-                        onTap: () {},
-                      ),
+                      // AnimatedTextKit(
+                      //   animatedTexts: [
+                      //     TyperAnimatedText(
+                      //         'Waktu yang kamu nikmati untuk dihabiskan meraih impian'),
+                      //     TyperAnimatedText(
+                      //         'bukanlah waktu yang terbuang.  - Marthe Troly-Curtin'),
+                      //   ],
+                      //   onTap: () {},
+                      // ),
                       const SizedBox(
                         height: 10,
                       ),
@@ -128,7 +138,7 @@ class ProfilePage extends StatelessWidget {
                         style: GoogleFonts.montserrat(color: Colors.white),
                       ),
                       const SizedBox(
-                        height: 90,
+                        height: 300,
                       ),
                     ],
                   ),
@@ -140,6 +150,16 @@ class ProfilePage extends StatelessWidget {
       ),
       tabletBody: TabletScaffold(
         scaffold: Scaffold(
+          appBar: AppBar(
+            title: Text(
+              'Profile',
+              style: GoogleFonts.dancingScript()
+                  .copyWith(color: Colors.black, fontSize: 30),
+            ),
+            centerTitle: true,
+            backgroundColor: kBgDarkColor,
+            elevation: 0,
+          ),
           body: SafeArea(
             child: Container(
               width: screen.width,
@@ -148,7 +168,7 @@ class ProfilePage extends StatelessWidget {
               child: SingleChildScrollView(
                 physics: const BouncingScrollPhysics(),
                 child: Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 120),
+                  padding: const EdgeInsets.symmetric(horizontal: 80),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -215,15 +235,15 @@ class ProfilePage extends StatelessWidget {
                           ],
                         ),
                       ),
-                      AnimatedTextKit(
-                        animatedTexts: [
-                          TyperAnimatedText(
-                              'Waktu yang kamu nikmati untuk dihabiskan meraih impian'),
-                          TyperAnimatedText(
-                              'bukanlah waktu yang terbuang.  - Marthe Troly-Curtin'),
-                        ],
-                        onTap: () {},
-                      ),
+                      // AnimatedTextKit(
+                      //   animatedTexts: [
+                      //     TyperAnimatedText(
+                      //         'Waktu yang kamu nikmati untuk dihabiskan meraih impian'),
+                      //     TyperAnimatedText(
+                      //         'bukanlah waktu yang terbuang.  - Marthe Troly-Curtin'),
+                      //   ],
+                      //   onTap: () {},
+                      // ),
                       const SizedBox(
                         height: 10,
                       ),
@@ -248,7 +268,7 @@ class ProfilePage extends StatelessWidget {
                         style: GoogleFonts.montserrat(color: Colors.white),
                       ),
                       const SizedBox(
-                        height: 90,
+                        height: 300,
                       ),
                     ],
                   ),
@@ -271,6 +291,40 @@ class ProfilePage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  const SizedBox(
+                    height: 100,
+                  ),
+                  Center(
+                    child: Container(
+                      height: 200,
+                      width: 200,
+                      decoration: BoxDecoration(
+                        border: Border.all(color: kSecondaryColor, width: 5),
+                        shape: BoxShape.circle,
+                      ),
+                      child: CachedNetworkImage(
+                        imageUrl: StringX.img,
+                        imageBuilder: (context, imageProvider) => Container(
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            image: DecorationImage(
+                                image: imageProvider, fit: BoxFit.cover),
+                          ),
+                        ),
+                        placeholder: (context, url) => const Center(
+                            child: SpinKitPulse(
+                          color: kSecondaryColor,
+                        )),
+                        errorWidget: (context, url, error) => const Icon(
+                          Icons.error,
+                          color: kPrimaryColor,
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 90,
+                  ),
                   Text(
                     StringX.hiThere,
                     style: GoogleFonts.montserrat(
@@ -298,15 +352,15 @@ class ProfilePage extends StatelessWidget {
                       ],
                     ),
                   ),
-                  AnimatedTextKit(
-                    animatedTexts: [
-                      TyperAnimatedText(
-                          'Waktu yang kamu nikmati untuk dihabiskan meraih impian'),
-                      TyperAnimatedText(
-                          'bukanlah waktu yang terbuang.  - Marthe Troly-Curtin'),
-                    ],
-                    onTap: () {},
-                  ),
+                  // AnimatedTextKit(
+                  //   animatedTexts: [
+                  //     TyperAnimatedText(
+                  //         'Waktu yang kamu nikmati untuk dihabiskan meraih impian'),
+                  //     TyperAnimatedText(
+                  //         'bukanlah waktu yang terbuang.  - Marthe Troly-Curtin'),
+                  //   ],
+                  //   onTap: () {},
+                  // ),
                   const SizedBox(
                     height: 10,
                   ),

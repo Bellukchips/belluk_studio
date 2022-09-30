@@ -25,7 +25,7 @@ class _MenuDrawerState extends State<MenuDrawer> {
     return AnimatedContainer(
       duration: const Duration(milliseconds: 300),
       margin: const EdgeInsets.symmetric(vertical: 20,horizontal: 20),
-      width: widget.isSelected ? 300 : 200,
+      width: widget.isSelected ? 200 : 150,
       height: widget.isSelected ? 60 : 50,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(30), color: kSecondaryColor),
@@ -53,7 +53,7 @@ class _MenuDrawerState extends State<MenuDrawer> {
             Text(
               widget.txt,
               style: GoogleFonts.roboto(
-                  fontSize: widget.isSelected ? 20 : 14,
+                  fontSize: widget.isSelected ? 17 : 14,
                   fontWeight: FontWeight.bold,
                   color: Colors.white),
               textAlign: TextAlign.center,
