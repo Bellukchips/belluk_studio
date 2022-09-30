@@ -24,8 +24,8 @@ class _MenuDrawerState extends State<MenuDrawer> {
   Widget build(BuildContext context) {
     return AnimatedContainer(
       duration: const Duration(milliseconds: 300),
-      margin: const EdgeInsets.symmetric(vertical: 20),
-      width: widget.isSelected ? 250 : 180,
+      margin: const EdgeInsets.symmetric(vertical: 20,horizontal: 20),
+      width: widget.isSelected ? 300 : 200,
       height: widget.isSelected ? 60 : 50,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(30), color: kSecondaryColor),
