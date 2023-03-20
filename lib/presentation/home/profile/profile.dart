@@ -255,6 +255,8 @@ class ProfilePage extends StatelessWidget {
                             fontWeight: FontWeight.w400),
                         textAlign: TextAlign.justify,
                       ),
+                  TextFormField(),
+
                       const SizedBox(
                         height: 20,
                       ),
@@ -372,6 +374,7 @@ class ProfilePage extends StatelessWidget {
                         fontWeight: FontWeight.w400),
                     textAlign: TextAlign.justify,
                   ),
+                  TextFormField(),
                   const SizedBox(
                     height: 20,
                   ),
